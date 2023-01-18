@@ -22,7 +22,10 @@ router.get("/login", (req, res) => {
       }
     });
   } else {
-    res.redirect("/auth/google/callback");
+    res.status(400).json({
+      success: false,
+      message: "User not found!",
+    });
   }
 });
 
