@@ -22,7 +22,7 @@ router.get("/login", (req, res) => {
       }
     });
   } else {
-    res.status(400).json({
+    res.status(200).json({
       success: false,
       message: "User not found!",
     });
