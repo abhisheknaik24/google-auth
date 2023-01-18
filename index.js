@@ -7,26 +7,24 @@ const passport = require("passport");
 const authRoutes = require("./routes/authRoutes");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 app.use(express.json());
 
-app.use(
-  cors()
-
-  // {
-  //   origin: process.env.CLIENT_URL,
-  //   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  //   credentials: true,
-  // }
-);
+// app.use(
+//   cors({
+//     origin: process.env.CLIENT_URL,
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true,
+//   })
+// );
 
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
+    // cookie: { secure: true },
   })
 );
 
