@@ -29,12 +29,12 @@ router.get("/login", (req, res) => {
 router.get(
   "/callback",
   passport.authenticate("google", {
-    successRedirect: "/auth/google/login",
-    failureRedirect: "/auth/google/login/failed",
+    successRedirect: process.env.CLIENT_URL,
+    failureRedirect: "/auth/google/failed",
   })
 );
 
-router.get("/login/failed", (req, res) => {
+router.get("/failed", (req, res) => {
   res.status(400).json({
     success: false,
     message: "Log In failed!",
